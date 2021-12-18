@@ -1,0 +1,456 @@
+@font-face {
+    font-family: 'Cairo', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'MuseoModerno', cursive;
+    font-family: 'Open Sans', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Lato:wght@300;400;700;900&family=MuseoModerno:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap');
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+#wrapper {
+    overflow-x: hidden;
+    position: relative;
+}
+
+.intro_wrap {
+    background: $introColor;
+    
+    .container {
+        max-width: 1620px;
+        margin: 0 auto;
+        padding: 30px 15px;
+
+        @media screen and (min-width: $tab) {
+            padding: 60px 15px 40px;
+        }
+
+        @media screen and (min-width: $pc) {
+            padding: 90px 15px 40px;
+        }
+
+        .present {
+            max-width: 100%;
+            position: relative;
+            margin-bottom: 26px;
+
+            @media screen and (min-width: $tab) {
+                max-width: 550px;
+                padding-left: 45px;
+                margin-bottom: 60px;
+            }
+
+            @media screen and (min-width: $pc) {
+                margin-bottom: 99px;
+                padding-left: 68px;
+            }
+
+            strong {
+                @include font_style ($blue-250, 17px, (24/17), 600);
+
+                text-transform: uppercase;
+                font-family: 'Open Sans', sans-serif;
+                display: block;
+                margin-bottom: 14px;
+            }
+
+            h1 {
+                @include font_style ($white-200, 34px, (46/42), 700);
+
+                font-family: 'Cairo', sans-serif;
+                margin-bottom: 26px;
+
+                @media screen and (min-width: $pc) {
+                    @include font_style ($white-200, 55px, (60/55), 700);
+                }
+            }
+
+            p {
+                @include font_style ($gray-100, 16px, (28/16), 400);
+
+                font-family: 'Open Sans', sans-serif;
+                margin-bottom: 26px;
+
+                @media screen and (min-width: $pc) {
+                    margin-bottom: 43px;
+                }
+            }
+
+            a {
+                @include font_style ($white, 18px, (40/18), 700);
+
+                font-family: 'Cairo', sans-serif;
+                min-width: 100%;
+                display: inline-block;
+                background: $blue-300;
+                border-radius: 6px;
+                text-decoration: none;
+                text-align: center;
+                padding: 10px;
+                transition: .2s;
+
+                &:hover {
+                    background: $blue-350;
+                }
+
+                @media screen and (min-width: $tab) {
+                    min-width: 197px;
+                }
+            }
+
+            ul {
+                display: none;
+
+                @media screen and (min-width: $tab) {
+                    position: absolute;
+                    left: 0;
+                    top: calc(50% - 135px);
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    min-height: 270px;
+                }
+
+                li {
+                    margin-bottom: 15px;
+                    width: 18px;
+                    height: 18px;
+                    text-align: center;
+
+                    span {
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        display: inline-block;
+                        border: 1px solid $gray-100;
+                        cursor: pointer;
+                        transition: .1s;
+
+                        &:hover {
+                            width: 18px;
+                            height: 18px;
+                            background: $gray-100;
+                            border: none;
+                        }
+                    }
+
+                    &.active span {
+                        width: 18px;
+                        height: 18px;
+                        border-radius: 50%;
+                        background: $gray-100;
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        .description {
+            border-top: 1px solid $gray-600;
+            text-align: left;
+            padding-top: 12px;
+
+            @media screen and (min-width: $tab) {
+                padding: 32px 0 0 50px;
+            }
+
+            @media screen and (min-width: $pc) {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 32px 0 0 88px;
+                margin: 0 -15px;
+            }
+            
+            li {
+                max-width: 100%;
+                position: relative;
+                transition: .2s;
+                margin-bottom: 25px;
+
+                @media screen and (min-width: $pc) {
+                    max-width: calc((100% / 3) - 30px);
+                    margin: 0 15px 40px;
+                    flex: 1 1 auto;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+
+                    @media screen and (min-width: $pc) {
+                        margin-bottom: 25px;
+                    }
+                }
+
+                a {
+                    padding-left: 70px;
+                    display: inline-block;
+                    text-decoration: none;
+
+                    @media screen and (min-width: $pc) {
+                        padding-left: 120px;
+                    }
+
+                    svg {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        max-width: 50px;
+                        max-height: 50px;
+                        fill: $white-200;
+                        transition: .2s;
+
+                        @media screen and (min-width: $pc) {
+                            left: 15px;
+                            top: calc(50% - 39px);
+                            top: 15px;
+                            max-width: 79px;
+                            max-height: 78px;
+                        }
+                    }
+    
+                    strong {
+                        @include font_style ($white-200, 24px, (46/24), 700);
+
+                        font-family: 'Cairo', sans-serif;
+                    }
+        
+                    p {
+                        @include font_style ($gray-100, 16px, (28/16), 400);
+
+                        font-family: 'Open Sans', sans-serif;
+                    }
+
+                    &:hover {
+                        svg {
+                            fill: $blue-200;
+                        }
+                    }
+                }
+                
+                &:hover::after {
+                    @media screen and (min-width: $pc) {
+                        content: url(../svg/active.svg);
+                        position: absolute;
+                        top: -39px;
+                        left: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.slider_wrap {
+    min-height: 252px;
+
+    @media screen and (min-width: $pc) {
+        display: flex;
+    }
+
+    &__events {
+        background: $blue-200;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+
+        @media screen and (min-width: $pc) {
+            justify-content: flex-start;
+            padding: 50px 20px 15px;
+        }
+
+        & > div {
+            @media screen and (min-width: $pc) {
+                padding-left: 60px;
+            }
+        }
+
+        strong {
+            @include font_style ($white, 24px, (46/24), 700);
+
+            font-family: 'Cairo', sans-serif;
+            display: block;
+            margin-bottom: 20px;
+        }
+    
+        ul {
+            display: flex;
+            justify-content: center;
+
+            @media screen and (min-width: $pc) {
+                justify-content: flex-start;   
+            }
+    
+            li {
+                button {
+                    background: none;
+                    outline: none;
+                    border: none;
+                    cursor: pointer;
+                    
+                }
+                &:last-child {
+                        svg {
+                            transform: rotate(180deg);
+                        }
+                }
+            }
+        }
+    }
+
+    &__timing {
+        background: $blue-300;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        @media screen and (min-width: $pc) {
+            width: calc(100% - 412px);
+        }
+
+        ul {
+            display: flex;
+            padding: 15px 0;
+
+            @media screen and (min-width: $pc) {
+                padding: 15px 0 15px 48px;
+            }
+
+            .active > div:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: $white;
+                border: 4px solid $blue-300;
+
+                @media screen and (min-width: $pc) {
+                    width: 26px;
+                    height: 26px;
+                    border: 5px solid $blue-300;
+                }
+            }
+
+            li {
+                position: relative;
+                padding-left: 0;
+                width: 100%;
+                margin: 0 15px;
+
+                &:not(:first-child) {
+                    display: none;
+
+                    @media screen and (min-width: $pc) {
+                        display: block;
+                    }
+                }
+
+                @media screen and (min-width: $pc) {
+                    padding-left: 140px;
+                    width: 450px;
+                }
+
+                .creative_time {
+                    width: 76px;
+                    height: 76px;
+                    background: $yellow;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+
+                    @media screen and (min-width: $pc) {
+                        width: 108px;
+                        height: 108px;
+                        left: 0;
+                        top: 0;
+                    }
+
+                    p {
+                        @include font_style ($black, 14px, (20/14), 700);
+
+                        font-family: 'Cairo', sans-serif;
+                        text-align: center;
+
+                        @media screen and (min-width: $pc) {
+                            @include font_style ($black, 16px, (28/16), 700);
+                        }
+
+                        strong {
+                            color: $black;
+                            font-size: 26px;
+                            line-height: (28/26);
+
+                            @media screen and (min-width: $pc) {
+                                font-size: 36px;
+                                line-height: (28/36);
+                            }
+                        }
+                    }
+                }
+
+                h3 {
+                    @include font_style ($white, 18px, (32/18), 700);
+
+                    font-family: 'Cairo', sans-serif;
+                    padding-left: 90px;
+
+                    @media screen and (min-width: $pc) {
+                        @include font_style ($white, 20px, (38/20), 700);
+
+                        padding-left: 0;
+                    }
+                }
+
+                time {
+                    @include font_style ($white, 16px, (28/16), 600);
+
+                    padding: 0 0 20px 90px;
+                    font-family: 'Open Sans', sans-serif;
+                    display: inline-block;
+
+                    @media screen and (min-width: $pc) {
+                        padding: 0;
+                    }
+                }
+                
+                p {
+                    @include font_style ($gray-100, 16px, (28/16), 400);
+
+                    font-family: 'Open Sans', sans-serif;
+                    
+                }
+            }
+        }
+
+        & > span {
+            @media screen and (min-width: $pc) {
+                height: 100%;
+                width: 200px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: block;
+                background: $eventsGradient;
+            }
+        }
+    }
+}
